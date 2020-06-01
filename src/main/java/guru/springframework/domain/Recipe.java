@@ -18,16 +18,16 @@ public class Recipe {
     private String url;
     private String directions;
 
-    private Difficulty difficulty;
-
     // de establece unarelacion bidireccional con Ingredient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
 
 
     @Lob // Anotación que se emplea para poder ampliar el número de caracteres
-
     private Byte[] image;
+    
+    @Enumerated(value= EnumType.STRING) // El enumerado persistirá en BBDD como un String
+    private Difficulty difficulty;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
