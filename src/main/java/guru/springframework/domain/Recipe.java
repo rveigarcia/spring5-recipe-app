@@ -2,9 +2,6 @@ package guru.springframework.domain;
 
 import javax.persistence.*;
 
-/**
- * Created by jt on 6/13/17.
- */
 @Entity
 public class Recipe {
 
@@ -19,10 +16,10 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-    //todo add
+
     //private Difficulty difficulty;
 
-    @Lob
+    @Lob // Anotación que se emplea para poder ampliar el número de caracteres
     private Byte[] image;
 
     @OneToOne(cascade = CascadeType.ALL)
