@@ -4,9 +4,6 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by jt on 6/13/17.
- */
 @Entity
 public class Recipe {
 
@@ -24,23 +21,27 @@ public class Recipe {
     @Lob
     private String directions;
 
+    // de establece unarelacion bidireccional con Ingredient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients = new HashSet<>();
 
-    @Lob
-    private Byte[] image;
 
-    @Enumerated(value = EnumType.STRING)
+    @Lob // Anotación que se emplea para poder ampliar el número de caracteres
+    private Byte[] image;
+    
+    @Enumerated(value= EnumType.STRING) // El enumerado persistirá en BBDD como un String
     private Difficulty difficulty;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    // relacion bidireccional con categoría
     @ManyToMany
-    @JoinTable(name = "recipe_category",
-        joinColumns = @JoinColumn(name = "recipe_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories = new HashSet<>();
+
+    @JoinTable(name = "recipe_category",	// nombre de tabla en BBDD
+        joinColumns = @JoinColumn(name = "recipe_id"), // nombre de atributo en BBDD
+            inverseJoinColumns = @JoinColumn(name = "category_id"))  //// nombre de atributo BBDD
+    private Set<Category> categories;
 
     public Long getId() {
         return id;
@@ -145,4 +146,5 @@ public class Recipe {
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
+
 }
