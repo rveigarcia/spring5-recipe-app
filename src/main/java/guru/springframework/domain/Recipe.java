@@ -3,9 +3,6 @@ package guru.springframework.domain;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by jt on 6/13/17.
- */
 @Entity
 public class Recipe {
 
@@ -21,14 +18,16 @@ public class Recipe {
     private String url;
     private String directions;
 
+    private Difficulty difficulty;
+
+    // de establece unarelacion bidireccional con Ingredient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
 
-    @Lob
-    private Byte[] image;
 
-    @Enumerated(value = EnumType.STRING)
-    private Difficulty difficulty;
+    @Lob // Anotación que se emplea para poder ampliar el número de caracteres
+
+    private Byte[] image;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
@@ -119,13 +118,5 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
-    }
-
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
     }
 }

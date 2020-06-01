@@ -3,9 +3,6 @@ package guru.springframework.domain;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * Created by jt on 6/13/17.
- */
 @Entity
 public class Ingredient {
 
@@ -15,9 +12,13 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
+ // se define relación unudiresccional oneToon con UnitOfMesure
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
+
+    //private UnitOfMeasure uom;
+    // de establece unarelacion bidireccional con Recipe
     @ManyToOne
     private Recipe recipe;
 
