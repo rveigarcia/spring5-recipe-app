@@ -15,7 +15,7 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
-
+ // se define relación unudiresccional oneToon con UnitOfMesure
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
