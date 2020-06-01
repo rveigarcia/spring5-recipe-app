@@ -32,10 +32,11 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    // relacion bidireccional con categoría
     @ManyToMany
-    @JoinTable(name = "recipe_category",
-        joinColumns = @JoinColumn(name = "recipe_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @JoinTable(name = "recipe_category",	// nombre de tabla en BBDD
+        joinColumns = @JoinColumn(name = "recipe_id"), // nombre de atributo en BBDD
+            inverseJoinColumns = @JoinColumn(name = "category_id"))  //// nombre de atributo BBDD
     private Set<Category> categories;
 
     public Long getId() {
