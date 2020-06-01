@@ -20,7 +20,7 @@ public class Recipe {
 
     //private Difficulty difficulty;
 
-
+    // de establece unarelacion bidireccional con Ingredient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
 

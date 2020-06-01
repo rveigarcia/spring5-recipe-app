@@ -16,7 +16,7 @@ public class Ingredient {
     private BigDecimal amount;
 
     //private UnitOfMeasure uom;
-
+    // de establece unarelacion bidireccional con Recipe
     @ManyToOne
     private Recipe recipe;
 
