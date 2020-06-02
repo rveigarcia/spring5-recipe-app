@@ -5,11 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
-/**
- * Created by jt on 6/13/17.
- */
+
 @Data
-@EqualsAndHashCode(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe"})  // debido a la relacion bidireccional excluimos recipes
 @Entity
 public class Notes {
 
@@ -20,7 +18,7 @@ public class Notes {
     @OneToOne
     private Recipe recipe;
 
-    @Lob
+    @Lob  // Anotación que se emplea para poder ampliar el número de caracteres
     private String recipeNotes;
 
 }
