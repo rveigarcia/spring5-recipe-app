@@ -119,12 +119,12 @@ public class Recipe {
     public Notes getNotes() {
         return notes;
     }
-
+    // modificamos el setter para que incluya un Note por la relación OneToOne
     public void setNotes(Notes notes) {
         this.notes = notes;
         notes.setRecipe(this);
     }
-
+    // se ha creado este método para añadir ingrdientes a la receta
     public Recipe addIngredient(Ingredient ingredient){
         ingredient.setRecipe(this);
         this.ingredients.add(ingredient);
