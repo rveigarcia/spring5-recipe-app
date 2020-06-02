@@ -1,8 +1,10 @@
 package guru.springframework.services;
 
+
 import guru.springframework.commands.RecipeCommand;
 import guru.springframework.converters.RecipeCommandToRecipe;
 import guru.springframework.converters.RecipeToRecipeCommand;
+
 import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -12,11 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
-
-/**
- * Created by jt on 6/13/17.
- */
-@Slf4j
+@Slf4j // para emplear el Logger
 @Service
 public class RecipeServiceImpl implements RecipeService {
 
@@ -61,3 +59,4 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeToRecipeCommand.convert(savedRecipe);
     }
 }
+

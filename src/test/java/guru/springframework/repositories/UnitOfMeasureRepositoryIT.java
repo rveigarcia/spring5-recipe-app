@@ -12,11 +12,8 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by jt on 6/17/17.
- */
-@RunWith(SpringRunner.class)
-@DataJpaTest
+@RunWith(SpringRunner.class) // se emplea la clase mainpara las pruebas
+@DataJpaTest	// trae una BBDD integrada y configura el Spring Data JPA
 public class UnitOfMeasureRepositoryIT {
 
     @Autowired
