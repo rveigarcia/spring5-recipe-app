@@ -1,6 +1,8 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
+
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,11 +18,13 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    
+    @Lob
     private String directions;
 
     // de establece unarelacion bidireccional con Ingredient
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
 
     @Lob // Anotación que se emplea para poder ampliar el número de caracteres
@@ -37,7 +41,7 @@ public class Recipe {
     @JoinTable(name = "recipe_category",	// nombre de tabla en BBDD
         joinColumns = @JoinColumn(name = "recipe_id"), // nombre de atributo en BBDD
             inverseJoinColumns = @JoinColumn(name = "category_id"))  //// nombre de atributo BBDD
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     public Long getId() {
         return id;
