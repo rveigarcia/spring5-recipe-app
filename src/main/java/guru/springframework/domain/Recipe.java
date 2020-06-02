@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,7 +42,7 @@ public class Recipe {
     @JoinTable(name = "recipe_category",	// nombre de tabla en BBDD
         joinColumns = @JoinColumn(name = "recipe_id"), // nombre de atributo en BBDD
             inverseJoinColumns = @JoinColumn(name = "category_id"))  //// nombre de atributo BBDD
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     public Long getId() {
         return id;
