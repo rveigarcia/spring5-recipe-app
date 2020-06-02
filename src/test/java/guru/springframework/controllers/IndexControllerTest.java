@@ -38,7 +38,7 @@ public class IndexControllerTest {
         //given
         Set<Recipe> recipes = new HashSet<>();
         recipes.add(new Recipe());
-
+        // los interpreta como elementos iguales, por eso la segunda receta se crea de forma diferente
         Recipe recipe = new Recipe();
         recipe.setId(1L);
 
