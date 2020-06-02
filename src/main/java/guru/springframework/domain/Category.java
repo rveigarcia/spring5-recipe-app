@@ -8,9 +8,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by jt on 6/13/17.
- */
+
 @Data
 @EqualsAndHashCode(exclude = {"recipes"})
 @Entity
@@ -21,7 +19,8 @@ public class Category {
     private Long id;
     private String description;
 
-    @ManyToMany(mappedBy = "categories")
+    // relacion bidireccional con receta
+    @ManyToMany(mappedBy = "categories") // nombre de atributo
     private Set<Recipe> recipes;
 
 }
