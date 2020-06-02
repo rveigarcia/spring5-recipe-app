@@ -10,14 +10,13 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by jt on 6/13/17.
- */
+
 @Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -131,10 +130,11 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "\n" +
                 "\n" +
                 "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws");
-
+        // ahora el setRecipe, por la relación se hace dentro de la crase Recipe metodo addIngredient
         guacRecipe.setNotes(guacNotes);
 
         //very redundent - could add helper method, and make this simpler
+        // el constructor de Recipe, también ha cambiado
         guacRecipe.addIngredient(new Ingredient("ripe avocados", new BigDecimal(2), eachUom));
         guacRecipe.addIngredient(new Ingredient("Kosher salt", new BigDecimal(".5"), teapoonUom));
         guacRecipe.addIngredient(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), tableSpoonUom));
@@ -209,3 +209,4 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         return recipes;
     }
 }
+
