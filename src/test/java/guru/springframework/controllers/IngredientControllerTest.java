@@ -61,10 +61,10 @@ public class IngredientControllerTest {
         when(ingredientService.findByRecipeIdAndIngredientId(anyLong(), anyLong())).thenReturn(ingredientCommand);
 
         //then
-        mockMvc.perform(get("/recipe/1/ingredient/2/show"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("recipe/ingredient/show"))
-                .andExpect(model().attributeExists("ingredient"));
+        mockMvc.perform(get("/recipe/1/ingredient/2/show"))  //recojemos por post el id 1 de una receta y el id 2 de un ingrediente
+                .andExpect(status().isOk())							// si el estatus es OK
+                .andExpect(view().name("recipe/ingredient/show"))	// la vista de la receta recipe/ingredient/show
+                .andExpect(model().attributeExists("ingredient"));	// si el atributo ingredient en la vista existe
     }
 
 }
