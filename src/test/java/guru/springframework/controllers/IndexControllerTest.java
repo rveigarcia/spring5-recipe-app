@@ -16,13 +16,12 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-/**
- * Created by jt on 6/17/17.
- */
+
 public class IndexControllerTest {
 
     @Mock
@@ -55,7 +54,7 @@ public class IndexControllerTest {
         //given
         Set<Recipe> recipes = new HashSet<>();
         recipes.add(new Recipe());
-
+        // los interpreta como elementos iguales, por eso la segunda receta se crea de forma diferente
         Recipe recipe = new Recipe();
         recipe.setId(1L);
 
