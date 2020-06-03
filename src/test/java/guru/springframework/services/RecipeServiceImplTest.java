@@ -19,9 +19,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by jt on 6/17/17.
- */
 public class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
@@ -81,6 +78,7 @@ public class RecipeServiceImplTest {
     public void getRecipesTest() throws Exception {
 
         Recipe recipe = new Recipe();
+
         HashSet receipesData = new HashSet();
         receipesData.add(recipe);
 
