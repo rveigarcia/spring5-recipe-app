@@ -7,12 +7,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * Created by jt on 6/13/17.
- */
+
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = {"recipe"})
+@EqualsAndHashCode(exclude = {"recipe"})  // debido a la relacion bidireccional excluimos recipes
+
 @Entity
 public class Ingredient {
 
@@ -22,15 +21,19 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
+ // se define relación unudiresccional oneToon con UnitOfMesure
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
+
+    //private UnitOfMeasure uom;
+    // de establece unarelacion bidireccional con Recipe
     @ManyToOne
     private Recipe recipe;
-
+    
     public Ingredient() {
     }
-
+    // constructor necesario a crearse el método addIngredient en Recipe
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
         this.description = description;
         this.amount = amount;
@@ -43,5 +46,4 @@ public class Ingredient {
         this.uom = uom;
         this.recipe = recipe;
     }
-
 }
