@@ -5,11 +5,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by jt on 6/17/17.
- */
 public class CategoryTest {
-
+	//como vamos a probar Catergory se crea un bojeto de ese tipo
     Category category;
 
     @Before
